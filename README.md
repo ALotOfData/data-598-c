@@ -2,24 +2,52 @@
 
 ## Content
 ```text
+.
 ├── LICENSE
 ├── README.md
 ├── clean_data
-│   └── clean_ahs.csv
 ├── raw_data
-│   └── ahs2017n.csv
+│   ├── ramen_ratings.csv
+│   └── ramen_consumption_by_country.tsv
 └── src
     └── data_cleaning.ipynb
 ```
 
-| File                    | Description                                                                                                                                                                                                              |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| LICENSE                 | Contains license for code in this repository.                                                                                                                                                                            |
-| README.md               | This file.                                                                                                                                                                                                               |
-| raw_data/ahs2017n.csv   | Raw data file unzipped from the original archive downloaded at [this](http://www2.census.gov/programs-surveys/ahs/2017/AHS%202017%20National%20PUF%20v3.0%20Flat%20CSV.zip?#) address. (Not provided in this repository) |
-| raw_data/clean_ahs.csv  | A subset of the AHS file containing information about 'interesting' properties. Variables where cleaned and renamed                                                                                                      |
-| src/data_cleaning.ipynb | Jupyter notebook explaning initial data cleaning steps taken for this analysis.                                                                                                                                          |
+| File                                       | Description                                                                                                                            |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| LICENSE                                    | Contains license for code in this repository.                                                                                          |
+| README.md                                  | This file.                                                                                                                             |
+| raw_data/ramen_ratings.csv                 | Ramen ratings were obtained from the [kaggle website](https://www.kaggle.com/residentmario/ramen-ratings).                             |
+| raw_data/ramen_consumptions_by_country.tsv | Ramen consumptions by country obtained from the [World instant noodle association](https://instantnoodles.org/en/noodles/market.html). |
+| raw_data/clean_ramen_ratings.csv           | Variables were cleaned and supplemented with additional country based data.                                                            |
+| src/data_cleaning.ipynb                    | Jupyter notebook explaining the initial data cleaning steps.                                                                           |
+| src/feature_generation.ipynb               | Jupyter notebook extracting features for classification task.                                                                          |
 
+## Data sources
+
+### Ramen ratings
+
+The original kaggle dataset of ramen ratings posting provides the original source:
+> _"This dataset is republished as-is from the original BIG LIST on https://www.theramenrater.com/."_ - Aleksey Bilogur
+
+| Column   | Description                                                            |
+| -------- | ---------------------------------------------------------------------- |
+| Review # | Review # of the ramen Variety on theramenrater website.                |
+| Brand    | Name of instant noodle maker                                           |
+| Variety  | Specific name of instant noodle product                                |
+| Style    | Format of instant noodle product                                       |
+| Country  | Country manifacturer of instant noodle product                         |
+| Stars    | Ratings in as a floating point number between 0 and 5                  |
+| Top Ten  | Ranking of the instant noodle product is part of the BIG LIST top ten. |
+
+### Ramen consumption by country
+
+The dataset coming from the [World instant noodle association](https://instantnoodles.org/en/noodles/market.html) is an html table extracted from their website on 01/26/2020.
+
+| Column           | Description                                                             |
+| ---------------- | ----------------------------------------------------------------------- |
+| Country / Region | Country / Region of interest                                            |
+| 201*             | Year columns for which consumptions in million of servings was recorded |
 
 ## Project description
-Analysis of a subset of the Census bureau AHS (American Housing Survey) PUF (Public Use File) for the class data 598c at the University of Washington.
+This project will explore different clustering methods with the goal of predicting instant noodles ratings for the class data 598c at the University of Washington.
