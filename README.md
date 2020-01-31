@@ -6,22 +6,26 @@
 ├── LICENSE
 ├── README.md
 ├── clean_data
+│   ├── clean_ramen_ratings.csv
+│   └── ramen_features.csv
 ├── raw_data
-│   ├── ramen_ratings.csv
-│   └── ramen_consumption_by_country.tsv
+│   ├── ramen_consumption_by_country.tsv
+│   └── ramen_ratings.csv
 └── src
-    └── data_cleaning.ipynb
+    ├── data_cleaning.ipynb
+    └── feature_selection.ipynb
 ```
 
 | File                                       | Description                                                                                                                            |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | LICENSE                                    | Contains license for code in this repository.                                                                                          |
 | README.md                                  | This file.                                                                                                                             |
-| raw_data/ramen_ratings.csv                 | Ramen ratings were obtained from the [kaggle website](https://www.kaggle.com/residentmario/ramen-ratings).                             |
+| clean_data/clean_ramen_ratings.csv         | Variables were cleaned and supplemented with additional country based data.                                                            |
+| clean_data/ramen_features.csv              | Output of the feature_selection notebook containing extracted features from the ramen_features.csv file.                               |
 | raw_data/ramen_consumptions_by_country.tsv | Ramen consumptions by country obtained from the [World instant noodle association](https://instantnoodles.org/en/noodles/market.html). |
-| raw_data/clean_ramen_ratings.csv           | Variables were cleaned and supplemented with additional country based data.                                                            |
+| raw_data/ramen_ratings.csv                 | Ramen ratings were obtained from the [kaggle website](https://www.kaggle.com/residentmario/ramen-ratings).                             |
 | src/data_cleaning.ipynb                    | Jupyter notebook explaining the initial data cleaning steps.                                                                           |
-| src/feature_selection.ipynb               | Jupyter notebook extracting features for classification task.                                                                          |
+| src/feature_selection.ipynb                | Jupyter notebook extracting features for classification task.                                                                          |
 
 ## Data sources
 
