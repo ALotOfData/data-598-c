@@ -21,7 +21,7 @@
 | raw_data/ramen_consumptions_by_country.tsv | Ramen consumptions by country obtained from the [World instant noodle association](https://instantnoodles.org/en/noodles/market.html). |
 | raw_data/clean_ramen_ratings.csv           | Variables were cleaned and supplemented with additional country based data.                                                            |
 | src/data_cleaning.ipynb                    | Jupyter notebook explaining the initial data cleaning steps.                                                                           |
-| src/feature_generation.ipynb               | Jupyter notebook extracting features for classification task.                                                                          |
+| src/feature_selection.ipynb               | Jupyter notebook extracting features for classification task.                                                                          |
 
 ## Data sources
 
