@@ -110,7 +110,7 @@ We added a new boolean column, `Five Year Consumption Increase`, indicating whet
 
 Microsoft reasearch has been working to create [interpretable machine learning models](https://github.com/interpretml/interpret) with the same accuracy as non-interpretable models such as random forests and gradient boosted trees. The EBM model uses a mixture of generalized additive models (GAMs) with an added subset of pairwise interactions. (Mixture of tree-based and linear methods)
 
-$$g(E[y]) = β_0 + \sum_j f_j(x_j)+ \sum_{i \neq j} f_{ij} (x_i, x_j)$$
+<div style="text-align:center"><img src="assets/images/ebm.png" alt="EBM formula"/></div>
 
 This approach enables the package model to output a 2D graph for every feature explaining their weights and heatmaps explaining pairwise-interactions. These can be leveraged to better understand each feature's contribution to regression values. Students taking the human-centered data science course last quarter were introduced to this effort by Microsoft researchers.
 
@@ -150,13 +150,7 @@ We observed graphs for the built in EBM python package which explained how predi
 
 We defined a utility function based on the comparison of 2 ramen products. When comparing two products, when the product with the highest rating is picked the utility function returns 1 otherwise 0.
 
-$$
-U(x_1, x_2 |y_1 \geq y_2) = 
-     \begin{cases}
-       \text{0} &\quad\text{if $\hat{y}_1 < \hat{y}_2$}\\
-       \text{1} &\quad\text{if $\hat{y}_1 \geq \hat{y}_2$}\\
-     \end{cases}
-$$
+<div style="text-align:center"><img src="assets/images/utility.png" alt="Utility formula"/></div>
 
 We first loaded our models and evaluation data created in the model assessment notebook. We then wrote the utility function and ran it on the validation set's predicted scores for both our models. The linear model picked the highest rated ramen 31.67% while the EBM model did marginally better at 33.85%. In this case, picking a ramen product randomly would perform significantly better than using the models.
 
