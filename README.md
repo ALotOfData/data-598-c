@@ -1,6 +1,6 @@
 # 🍜 Ramen ratings
 
-## Content
+## 🗒 Content
 ```text
 .
 ├── LICENSE
@@ -40,7 +40,7 @@
 | src/model_assessment.ipynb                 | Jupyter notebook assessing the different models..                                                                                      |
 | src/model_evaluation.ipynb                 | Jupyter notebook using the validation set and a utility function to evaluate the models.                                               |
 
-## Report
+## 📊 Report
 
 ### **Ficticious** Problem statement
 
@@ -48,9 +48,9 @@ QSRA, the Quantified Self Research Agency, is slowly moving away from step count
 
 In order to maximize star rating, we will be creating an app powered by a model capable of predicting ramen product's star rating so that users can consume better ramen (and therefore , we hope, live happier lives 😃).
 
-### Data
+### 💾 Data
 
-#### Ramen ratings
+#### ⭐️ Ramen ratings
 
 We first discovered a kaggle dataset of ramen ratings which provided its source:
 > _"This dataset is republished as-is from the original BIG LIST on https://www.theramenrater.com/."_ - Aleksey Bilogur
@@ -65,7 +65,7 @@ We first discovered a kaggle dataset of ramen ratings which provided its source:
 | Stars    | Ratings in as a floating point number between 0 and 5                  |
 | Top Ten  | Ranking of the instant noodle product is part of the BIG LIST top ten. |
 
-#### Ramen consumption by country
+#### 🇨🇦 Ramen consumption by country
 
 We then found a second dataset coming from the [World instant noodle association](https://instantnoodles.org/en/noodles/market.html) which is an html table extracted from their website on 01/26/2020.
 
@@ -74,7 +74,7 @@ We then found a second dataset coming from the [World instant noodle association
 | Country / Region | Country / Region of interest                                   |
 | 201*             | Year columns; Consumptions in million of servings was recorded |
 
-### Data cleaning & processing
+### 🧹 Data cleaning & processing
 
 We first cleaned and combined the data obtained from the ramens rating kaggle entry and the World Instant Noodle Association dataset.
 
@@ -86,25 +86,25 @@ After renaming columns, the dataset was exported to the [clean_rament_ratings.cs
 
 >Each of the above step are explained in additional details in the [data cleaning notebook](src/data_cleaning.ipynb).
 
-### Feature engineering
+### 🥼 Feature engineering
 
 The clean dataset contained the `Brand`, `Variety`, `Style`, `Stars`, `Country` and `Year` (2014-2018) columns. We examined the columns one by one to determine if features could be extracted / useful for our analysis.
 
-`Brand` was difficult to use ass it had a high cardinality and only a few rows were associated with most brands. We decided not to use this column as a result.
+* `Brand` was difficult to use ass it had a high cardinality and only a few rows were associated with most brands. We decided not to use this column as a result.
 
-`Variety` contained free-form text associated with the name of the product. We used the length of this field and used the `spacy` python package to extract words and created a boolean column "`spicy`"which indicated whether the product's name mentioned spicyness. This was a highly manual process requiring googling many words to verify whether they were related to spicyness.
+* `Variety` contained free-form text associated with the name of the product. We used the length of this field and used the `spacy` python package to extract words and created a boolean column "`spicy`"which indicated whether the product's name mentioned spicyness. This was a highly manual process requiring googling many words to verify whether they were related to spicyness.
 
-`Style` was categorical and had very low cardinality we used the built in pandas function `get_dummies` to create a one hot encoding of this variable.
+* `Style` was categorical and had very low cardinality we used the built in pandas function `get_dummies` to create a one hot encoding of this variable.
 
-`Country & Year` both of these column contain the "same" information. We removed the `Country` as a result and kept the year. For each year, values were normalized so that year over year comparison could be drawn.
+* `Country & Year` both of these column contain the "same" information. We removed the `Country` as a result and kept the year. For each year, values were normalized so that year over year comparison could be drawn.
 
 We added a new boolean column, `Five Year Consumption Increase`, indicating whether there was an increase in ramen consumption.
 
-`Stars` is our target variable and was not altered / used in feature selection.
+* `Stars` is our target variable and was not altered / used in feature selection.
 
 >Each of the above step are explained in additional details in the [feature selection notebook](src/feature_selection.ipynb).
 
-### Model selection
+### ⚖️ Model selection
 
 #### Model #1 - EBM (Explainable Boosting Machines)
 
@@ -128,7 +128,7 @@ The dataset seem to fulfill some, but not all of the requirements of linear mode
 - normal errors ← Some of the dependents/independent variable do not follow a normal distribution. We will need to look at the residuals.
 - independent observations ← Cannot be known for certain that no outside factors swayed the ramen ratings.
 
-### Model training and assessment
+### 👟 Model training and assessment
 
 We first removed the 3 "Unrated" rows in our dataset. Because so few rows were affected, no additional imputation strategy were used.
 
@@ -146,7 +146,7 @@ We observed graphs for the built in EBM python package which explained how predi
 
 >Each of the above step are explained in additional details in the [model assessment notebook](src/model_assessment.ipynb).
 
-### Model evaluation
+### 💯 Model evaluation
 
 We defined a utility function based on the comparison of 2 ramen products. When comparing two products, when the product with the highest rating is picked the utility function returns 1 otherwise 0.
 
@@ -160,6 +160,6 @@ With the current dataset, we weren't able to create a model which could choose t
 
 >Each of the above step are explained in additional details in the [model evaluation notebook](src/model_evaluation.ipynb).
 
-### Recommendation
+### ✏️ Recommendation
 
 When faced with a choice between two brands of ramen, a QSRA member should refer to the [ramen eater's big list](https://www.theramenrater.com/resources-2/the-list/) or, if the products they are interested are not listed, pick a product randomly.
