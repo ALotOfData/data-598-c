@@ -5,6 +5,7 @@
 .
 ├── LICENSE
 ├── README.md
+├── ramen_ratings.yml
 ├── clean_data
 │   ├── clean_ramen_ratings.csv
 │   ├── ebm_val_data.csv
@@ -25,20 +26,21 @@
 
 | File                                       | Description                                                                                                                            |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| LICENSE                                    | Contains license for the code in this repository.                                                                                          |
-| README.md                                  | This file, contains a brief description of the content of this repository and the data-598-c class final report.                        |
+| LICENSE                                    | Contains license for the code in this repository.                                                                                      |
+| README.md                                  | This file, contains a brief description of the content of this repository and the data-598-c class final report.                       |
+| ramen_ratings.yml                          | Conda environment used for this analysis (MacOS Catalina 10.15.3)                                                                      |
 | clean_data/clean_ramen_ratings.csv         | Variables were cleaned and supplemented with additional country based data.                                                            |
 | clean_data/ebm_val_data.csv                | Validation data for the model evaluation step of the EBM model.                                                                        |
 | clean_data/linear_val_data.csv             | Validation data for the model evaluation step of the linear model.                                                                     |
 | clean_data/ramen_features.csv              | Output of the feature_selection notebook containing extracted features from the ramen_features.csv file.                               |
-| models/emb.joblib                          | Archive file for the EBM model.                                                                                                            |
+| models/emb.joblib                          | Archive file for the EBM model.                                                                                                        |
 | models/linear.joblib                       | Archive file for the linear model.                                                                                                     |
 | raw_data/ramen_consumptions_by_country.tsv | Ramen consumptions by country obtained from the [World instant noodle association](https://instantnoodles.org/en/noodles/market.html). |
-| raw_data/ramen_ratings.csv                 | Ramen ratings obtained from this [kaggle entry](https://www.kaggle.com/residentmario/ramen-ratings).                             |
+| raw_data/ramen_ratings.csv                 | Ramen ratings obtained from this [kaggle entry](https://www.kaggle.com/residentmario/ramen-ratings).                                   |
 | src/data_cleaning.ipynb                    | Jupyter notebook explaining the initial data cleaning steps.                                                                           |
 | src/feature_selection.ipynb                | Jupyter notebook extracting features for the regression task.                                                                          |
-| src/model_assessment.ipynb                 | Jupyter notebook assessing the different models.                                                                                      |
-| src/model_evaluation.ipynb                 | Jupyter notebook using the validation set and a utility function to evaluate the models in their context of use.                                               |
+| src/model_assessment.ipynb                 | Jupyter notebook assessing the different models.                                                                                       |
+| src/model_evaluation.ipynb                 | Jupyter notebook using the validation set and a utility function to evaluate the models in their context of use.                       |
 
 ## 📊 Report
 
